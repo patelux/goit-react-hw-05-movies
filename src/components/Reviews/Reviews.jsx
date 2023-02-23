@@ -33,7 +33,7 @@ export default function Reviews() {
      <>   
     <div>
     {status === 'LOADING' && <Loader />}
-      <div>Reviews</div>;
+    
       <Grid>
         {details.map(el => (
         <GridItem key={el.id}>
