@@ -21,7 +21,7 @@ export const App = () => {
     </Routes>
   );
 };
-
+// 
 // const LazyHeader = lazy(() => import('../Header/Header'));
 // const LazyHome = lazy(() => import('pages'));
 // const LazyMovies = lazy(() => import('pages'));
