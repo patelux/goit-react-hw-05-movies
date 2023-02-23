@@ -81,12 +81,12 @@ export default function MovieDetails() {
 
       </div>            
       </Container>
+    <Outlet />      
       <Container>
             <NavLink to="/">
         <BtnBackToPrevious>Back to home</BtnBackToPrevious>
         </NavLink>
       </Container>
-    <Outlet />
     </Section>
   );
 };
