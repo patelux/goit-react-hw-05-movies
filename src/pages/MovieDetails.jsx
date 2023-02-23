@@ -65,7 +65,7 @@ export default function MovieDetails() {
       <Container>
         <GeneralsectionTitle>Additional information</GeneralsectionTitle>
 
-        <div>
+        <div class='addition'>
         <CastGrid>
           <GridItem>
             <NavLink state={location.state} to={`/movies/${movieId}/cast`}>
@@ -78,13 +78,15 @@ export default function MovieDetails() {
             </NavLink>
           </GridItem>
         </CastGrid>
-        <Outlet />
+
       </div>            
       </Container>
-      <NavLink to="/">
+      <Container>
+            <NavLink to="/">
         <BtnBackToPrevious>Back to home</BtnBackToPrevious>
         </NavLink>
-      <Outlet />
+      </Container>
+    <Outlet />
     </Section>
   );
 };

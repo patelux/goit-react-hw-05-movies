@@ -16,7 +16,6 @@ export const App = () => {
         <Route index element={<LazyHome />} />
         <Route path="/movies" element={<LazyMovies />} />
         <Route path="/movies/:movieId" element={<LazyMovieDetails />}>
-
         <Route path="/movies/:movieId/cast" element={<LazyCast />}/>
         <Route path="/movies/:movieId/reviews" element={<LazyReviews/>} />
         </Route>

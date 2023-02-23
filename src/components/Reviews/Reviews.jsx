@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { fetchMovieRewievs } from 'service/api';
 
 import  Loader  from '../Loader/Loader';
-import { Heading, Text, Grid, GridItem } from 'components';
+import { Heading, Text, Grid, GridItem, Container } from 'components';
 
 export default function Reviews() {
   const [details, setDetails] = useState([]);
@@ -31,7 +31,7 @@ export default function Reviews() {
   return (
     [...details].length > 0 ? (
      <>   
-    <div>
+    <Container class='additional'>
     {status === 'LOADING' && <Loader />}
     
       <Grid>
@@ -43,7 +43,7 @@ export default function Reviews() {
         
         ))}
       </Grid>
-    </div>
+    </Container>
     </>
     ) : (
     <Heading>No reviews</Heading>    
