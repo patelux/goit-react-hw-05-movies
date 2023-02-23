@@ -10,13 +10,13 @@ export const SearchFormStyled = styled.form`
   margin-bottom: ${props => props.theme.spacing.step * 20}px;
 `;
 
-export const Select = styled.select`
+export const Select = styled.input`
   width: 100%;
   height: 50px;
 
   border-style: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-  background-color: transparent;
+  background-color: #737373;
 
   padding: 10px;
   font-size: 18px;

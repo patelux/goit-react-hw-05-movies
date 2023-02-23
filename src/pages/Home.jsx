@@ -1,9 +1,12 @@
-import { Container, MovieList, Section } from 'components';
 import { fetchMovies } from 'service/api';
 import { useEffect, useState } from 'react';
 
+import { Container, Section, GeneralsectionTitle } from 'components';
+import MovieList from '../components/MovieList/MovieList';
+import Loader from '../components/Loader/Loader';
 
-export const Home = () => {
+
+export default function Home() {
   const [movies, setMovies] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -17,17 +20,20 @@ export const Home = () => {
     .finally(() => {
       setIsLoading(false);
     });
-  }, [])
-console.log(movies);
 
+  }, []);
+console.log(movies);
 
   return (
     <Section>
       <Container>
         {isLoading && <Loader />}
-        <MovieList movies={movies} />
-        {error && <p>Error: {error.message}</p>}
+        <GeneralsectionTitle>Trending today</GeneralsectionTitle>
+        {movies && <MovieList movies={movies} />}
+        {Boolean(error) && <p>Error: {error.message}</p>}
       </Container>
     </Section>
   );
 };
+
+

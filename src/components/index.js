@@ -8,3 +8,5 @@ export * from 'components/MovieList/MovieList';
 export * from 'components/MovieInfo/MovieInfo';
 export * from 'components/MovieInfo/MovieInfo.styled';
 export * from 'components/Loader/Loader';
+export * from 'components/Reviews/Reviews';
+export * from 'components/Cast/Cast'; 

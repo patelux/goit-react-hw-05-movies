@@ -1,14 +1,27 @@
 import { Grid, GridItem } from 'components';
+import { NavLink, Outlet } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
-export const MovieList = ({ movies }) => {
+export default function MovieList({ movies }) {
   return (
+    <>
     <Grid>
-      { movies !== undefined && movies.map(({id, title, name}) =>  { return (
-        <GridItem key={id}>
-          {Boolean(title) ? <span>{title}</span> : <span>{name}</span>}          
-        </GridItem>
+      { movies !== undefined && movies.map(({ id, title}) => {return (
+        <GridItem>
+        <NavLink to={`/movies/${id}`} key={id}>{title.toUpperCase()}</NavLink>
+        <Outlet />
+        </GridItem>       
       )})}
-    </Grid>
+    </Grid>  
+    </>
   );
 };
 
+MovieList.propTypes = {
+  movies: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      title: PropTypes.string,
+    })
+  ),
+};

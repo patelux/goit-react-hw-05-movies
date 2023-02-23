@@ -1,8 +1,10 @@
 import { FiSearch } from 'react-icons/fi';
 import { BtnSearch, Select, SearchFormStyled } from './SearchForm.styled';
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 
-export const SearchForm = ({ onSubmit }) => {
+
+export default function SearchForm({ onSubmit })  {
   const [query, setQuery] = useState('');
 
   const handleChange = e => {
@@ -11,6 +13,11 @@ export const SearchForm = ({ onSubmit }) => {
   const handleSubmit = e => {
     e.preventDefault();
     onSubmit(query);
+    if (query.trim() === '' ) {
+      alert('Please enter a search query!');
+      return;
+    }
+    setQuery('');
   };
   return (
     <SearchFormStyled onSubmit={handleSubmit}>
@@ -18,21 +25,22 @@ export const SearchForm = ({ onSubmit }) => {
         <FiSearch size="16px" />
       </BtnSearch>
       <Select
-        defaultValue="DEFAULT"
+        type="text"
+        autoComplete="off"
+        value={query || ''}
+        autoFocus
+        placeholder="Search images and photos"
+        name="query"
         onChange={handleChange}
         aria-label="select"
-        name="region"
         required
       >
-        <option value="DEFAULT" disabled defaultValue="">
-          Select a region and press enter
-        </option>
-        <option value="africa">Africa</option>
-        <option value="america">America</option>
-        <option value="asia">Asia</option>
-        <option value="europe">Europe</option>
-        <option value="Oceania">Oceania</option>
       </Select>
     </SearchFormStyled>
   );
 };
+
+SearchForm.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
+

@@ -15,11 +15,11 @@ export const Section = styled.section`
 `;
 
 export const Container = styled.div`
-  width: 100%;
-
+  
+width: 100%;
+  
   padding-left: ${props => props.theme.spacing.step * 5}px;
   padding-right: ${props => props.theme.spacing.step * 5}px;
-
   margin-left: auto;
   margin-right: auto;
 
@@ -75,30 +75,70 @@ export const Text = styled.p`
   }
 `;
 
-export const Grid = styled.ol`
+export const Grid = styled.ul`
   display: grid;
-  list-style: decimal;
+  list-style: square;
   // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: ${props => props.theme.spacing.step * 5}px;
+  grid-gap: ${props => props.theme.spacing.step * 10}px;
 `;
 
 export const GridItem = styled.li`
   display: flex;
   flex-direction: column;
+  list-style: square;
   align-items: left;
   justify-content: center;
   background-color: ${props => props.color};
-  width: ${props => props.theme.spacing.step *100}px;
+  max-width: ${props => props.theme.spacing.step *150}px;
   border: 4px solid ${({ color }) => color ?? '#fff'};
   border-radius: ${props => props.theme.spacing.step * 4}px;
   transition: transform 0.5s ${props => props.theme.animations.cubicBezier};
   padding: ${props => props.theme.spacing.step *2}px;
+  padding-left: ${props => props.theme.spacing.step *6}px;
+  overflow: hidden;
+  cursor: zoom-in;
+  font-size: 24px;
+  font-weight: 400;
+
+  &:hover,
+  &:focus
+   {
+    transform: scale(1.05);
+    box-shadow: 0px 2px 10px 2px ${props => props.theme.colors.primary};
+    text-transform: underline;
+  }
+`;
+export const CastGrid = styled.ul`
+  margin-top: 80px;
+  display: grid;
+  list-style: square;
+  // grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: ${props => props.theme.spacing.step * 10}px;
+`;
+
+
+export const CastItem = styled.li`
+  display: flex;
+  flex-direction: column;
+  list-style: square;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  background-color: ${props => props.color};
+  max-width: ${props => props.theme.spacing.step *80}px;
+  border: 4px solid ${({ color }) => color ?? '#fff'};
+  border-radius: ${props => props.theme.spacing.step * 4}px;
+  transition: transform 0.5s ${props => props.theme.animations.cubicBezier};
+  padding: ${props => props.theme.spacing.step *2}px;
+  padding-left: ${props => props.theme.spacing.step *6}px;
   overflow: hidden;
   cursor: zoom-in;
 
+
   &:hover,
-  &:focus {
+  &:focus
+   {
     transform: scale(1.05);
-    box-shadow: 0px 2px 10px 2px ${props => props.theme.colors.primary};
+    text-transform: underline;
   }
 `;
